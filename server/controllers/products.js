@@ -1,7 +1,7 @@
-const router = require("express").Router();
+const productsRouter = require("express").Router();
 const Product = require("../models/product");
 
-router.get("/", async (req, res, next) => {
+productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await Product.find({});
     res.json(products);
@@ -10,15 +10,9 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+productsRouter.post("/", async (req, res, next) => {
   try {
     const body = req.body;
-
-    if (body === undefined) {
-      return res.status(400).json({
-        error: "Body missing",
-      });
-    }
 
     const product = new Product({
       name: body.name,
@@ -35,7 +29,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+productsRouter.delete("/:id", async (req, res, next) => {
   try {
     await Product.findByIdAndRemove(req.params.id);
     res.status(204).end();
@@ -44,4 +38,4 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-module.exports = router;
+module.exports = productsRouter;

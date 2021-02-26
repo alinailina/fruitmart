@@ -23,6 +23,12 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  orders: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
 });
 
 customerSchema.plugin(uniqueValidator);
