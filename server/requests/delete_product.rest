@@ -1,0 +1,3 @@
+@id = 6038d37d7560af5fba6dd4e4
+
+DELETE http://localhost:3001/api/products/{{id}} HTTP/1.1

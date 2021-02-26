@@ -1,0 +1,11 @@
+POST http://localhost:3001/api/products HTTP/1.1
+Content-type: application/json
+
+{
+  "name": "New product",
+  "description":
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "category": "fruits",
+  "price": 5,
+  "inStock": 100,
+}
