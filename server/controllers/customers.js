@@ -10,6 +10,15 @@ customersRouter.get("/", async (req, res, next) => {
   }
 });
 
+customersRouter.get("/:id", async (req, res, next) => {
+  try {
+    const order = await Customer.findById(req.params.id);
+    res.json(order);
+  } catch (exception) {
+    next(exception);
+  }
+});
+
 customersRouter.post("/", async (req, res, next) => {
   try {
     const body = req.body;
@@ -20,10 +29,12 @@ customersRouter.post("/", async (req, res, next) => {
       email: body.email,
       username: body.username,
       password: body.password,
+      orders: [],
     });
 
     const savedCustomer = await customer.save();
-    console.log(savedCustomer);
+    //console.log(savedCustomer);
+    res.json(savedCustomer);
   } catch (exception) {
     next(exception);
   }

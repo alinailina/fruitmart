@@ -10,6 +10,15 @@ productsRouter.get("/", async (req, res, next) => {
   }
 });
 
+productsRouter.get("/:id", async (req, res, next) => {
+  try {
+    const order = await Product.findById(req.params.id);
+    res.json(order);
+  } catch (exception) {
+    next(exception);
+  }
+});
+
 productsRouter.post("/", async (req, res, next) => {
   try {
     const body = req.body;
@@ -23,7 +32,8 @@ productsRouter.post("/", async (req, res, next) => {
     });
 
     const savedProduct = await product.save();
-    console.log(savedProduct);
+    // console.log(savedProduct);
+    res.json(savedProduct);
   } catch (exception) {
     next(exception);
   }
