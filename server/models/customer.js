@@ -29,6 +29,7 @@ const customerSchema = new mongoose.Schema({
       ref: "Order",
     },
   ],
+  createdAt: Date,
 });
 
 customerSchema.plugin(uniqueValidator);
@@ -42,5 +43,4 @@ customerSchema.set("toJSON", {
 });
 
 const Customer = mongoose.model("Customer", customerSchema);
-
 module.exports = Customer;

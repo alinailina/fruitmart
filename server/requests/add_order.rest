@@ -2,15 +2,11 @@ POST http://localhost:3001/api/orders HTTP/1.1
 Content-type: application/json
 
 {
-  "customer": "603cd4b34b16b702b4c459c7",
+  "customerId": "603df0abf371a74c1662f609",
   "cart": [
     {
-      "product": "6038d37d7560af5fba6dd4e5",
+      "product": "6038d37d7560af5fba6dd4e8",
       "count": 5
-    },
-    {
-      "product": "6038d37d7560af5fba6dd4e6",
-      "count": 10
     }
   ]
 }

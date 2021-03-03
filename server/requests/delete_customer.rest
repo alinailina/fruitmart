@@ -1,2 +1,2 @@
-@id = 6039385cbf8ac9798d0c861b
+@id = 
 DELETE http://localhost:3001/api/customers/{{id}} HTTP/1.1

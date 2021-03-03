@@ -3,7 +3,13 @@ const Customer = require("../models/customer");
 
 customersRouter.get("/", async (req, res, next) => {
   try {
-    const customers = await Customer.find({});
+    const customers = await Customer.find({}).populate({
+      path: "orders",
+      populate: {
+        path: "cart",
+        model: "CartProduct",
+      },
+    });
     res.json(customers);
   } catch (exception) {
     next(exception);
@@ -30,6 +36,7 @@ customersRouter.post("/", async (req, res, next) => {
       username: body.username,
       password: body.password,
       orders: [],
+      createdAt: new Date(),
     });
 
     const savedCustomer = await customer.save();

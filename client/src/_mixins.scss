@@ -1,0 +1,118 @@
+// Media queries
+@mixin phone {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin container {
+  margin: 0 auto;
+  width: 80%;
+
+  @include phone {
+    width: 90%;
+  }
+}
+
+// Flex containers
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.1), 0 3px 4px 0 rgba(0, 0, 0, 0.1),
+    0 1px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Texts
+
+@mixin XS {
+  font-size: 1rem;
+
+  @include tablet {
+    font-size: 1rem;
+  }
+
+  @include desktop {
+    font-size: 1.1vw;
+  }
+}
+@mixin S {
+  font-size: 1rem;
+  line-height: 1.5;
+
+  @include tablet {
+    font-size: 1.15rem;
+  }
+
+  @include desktop {
+    font-size: 1.5vw;
+  }
+}
+
+@mixin L {
+  font-size: 1.5rem;
+  @include tablet {
+    font-size: 1.75rem;
+  }
+
+  @include desktop {
+    font-size: 2vw;
+  }
+}
+@mixin XL {
+  font-size: 2rem;
+  @include tablet {
+    font-size: 2.5rem;
+  }
+
+  @include desktop {
+    font-size: 2.5vw;
+  }
+}
+
+@mixin XXL {
+  font-size: 3rem;
+  @include tablet {
+    font-size: 4rem;
+  }
+  @include desktop {
+    font-size: 5vw;
+  }
+}
+
+@mixin strong {
+  font-family: "ITCAvantGardeStd-Demi";
+}
+
+// @mixin txt-hl {
+//   background: linear-gradient(to top, #ccff33 100%, transparent 100%);
+// }
+
+@mixin underline {
+  background: linear-gradient(to top, #fc321c 5%, transparent 5%);
+}

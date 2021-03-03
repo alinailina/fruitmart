@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//const CartItem = require("./cartItem");
 
 const orderSchema = new mongoose.Schema({
   customer: {
@@ -9,10 +8,10 @@ const orderSchema = new mongoose.Schema({
   cart: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "CartItem",
+      ref: "CartProduct",
     },
   ],
-  date: { type: Date },
+  createdAt: Date,
 });
 
 orderSchema.set("toJSON", {
@@ -24,5 +23,4 @@ orderSchema.set("toJSON", {
 });
 
 const Order = mongoose.model("Order", orderSchema);
-
 module.exports = Order;
